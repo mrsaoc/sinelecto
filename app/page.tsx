@@ -1,11 +1,10 @@
 import dynamic from "next/dynamic";
-import GlitchButton from "../components/GlitchButton";
+import GlitchButton from "@/components/GlitchButton";
 
-// Importação dinâmica explícita e à prova de falhas para o Turbopack
-const FaultyTerminal = dynamic(
-    () => import("../components/FaultyTerminal").then((mod) => mod.default),
-    { ssr: false }
-);
+// Importação dinâmica com a sintaxe estrita exigida pelo analisador do Turbopack
+const FaultyTerminal = dynamic(() => import("@/components/FaultyTerminal"), {
+    ssr: false,
+});
 
 export default function Home() {
     return (
