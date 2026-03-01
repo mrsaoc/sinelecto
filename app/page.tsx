@@ -1,5 +1,10 @@
+import dynamic from "next/dynamic";
 import GlitchButton from "@/components/GlitchButton";
-import FaultyTerminal from "@/components/FaultyTerminal";
+
+// Importação dinâmica para contornar o erro de 'window is not defined' no SSR
+const FaultyTerminal = dynamic(() => import("@/components/FaultyTerminal"), {
+    ssr: false
+});
 
 export default function Home() {
     return (
