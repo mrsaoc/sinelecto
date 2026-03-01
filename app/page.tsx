@@ -1,7 +1,9 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import GlitchButton from "@/components/GlitchButton";
 
-// Importação dinâmica com a sintaxe estrita exigida pelo analisador do Turbopack
+// Agora, como estamos em um Client Component, o Next.js aceita o ssr: false perfeitamente.
 const FaultyTerminal = dynamic(() => import("@/components/FaultyTerminal"), {
     ssr: false,
 });
